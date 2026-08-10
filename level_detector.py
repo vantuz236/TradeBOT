@@ -19,3 +19,32 @@ def ext_search(bars):
     exts.append(high_exts)
     return exts
 
+
+def get_level(exts):
+    #1 low exts
+    low_levels = []
+    high_levels = []
+    lcount = 0
+    costs = []
+    for bar in exts[0]:
+        for nbar in exts[0]:
+            if nbar.get("low") - DIF < bar.get("low") < nbar.get("low") + DIF:
+                lcount += 1
+                costs.append(nbar.get("low"))
+        if lcount >= 3:
+            low_levels.append(round(sum(costs)/len(costs), 2))
+        lcount = 0
+        costs = []
+    #2 high exts
+
+    for bar in exts[1]:
+        for nbar in exts[1]:
+            if nbar.get("high") - DIF < bar.get("high") < nbar.get("high") + DIF:
+                lcount += 1
+                costs.append(nbar.get("high"))
+        if lcount >= 3:
+            high_levels.append(round(sum(costs)/len(costs), 2))
+        lcount = 0
+        costs = []
+
+    return [set(low_levels), set(high_levels)]
