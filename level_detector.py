@@ -26,6 +26,7 @@ def get_level(exts):
     high_levels = []
     lcount = 0
     costs = []
+    #бляя крч тут щас возвращается только цена линии с 3 экстремумами и то както коряво а надо сделать ретурн цена и ластбартайм
     for bar in exts[0]:
         for nbar in exts[0]:
             if nbar.get("low") * (1-DIF) < bar.get("low") < nbar.get("low") * (1+ DIF):
@@ -36,18 +37,21 @@ def get_level(exts):
         lcount = 0
         costs = []
     #2 high exts
-
     for bar in exts[1]:
         for nbar in exts[1]:
             if nbar.get("high") * (1-DIF) <= bar.get("high") <= nbar.get("high") * (1 +DIF):
                 lcount += 1
                 costs.append(nbar.get("high"))
         if lcount >= 3:
-            high_levels.append(round(sum(costs)/len(costs), 2))
+            high_levels.append({
+                "price":round(sum(costs)/len(costs), 2),
+                "lastbar": bar.get("time")
+            }
+            )
         lcount = 0
         costs = []
 
-    return [set(low_levels), set(high_levels)]
+    return 0
 
 
 
