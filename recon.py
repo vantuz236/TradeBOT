@@ -3,7 +3,7 @@ import requests
 SYMBOL = 'BTCUSDT'
 INTERVAL = "1d"
 
-DAY_LIMIT = 100
+DAY_LIMIT = 60
 HOUR_LIMIT = 24
 MENUTE_LIMIT = 60
 

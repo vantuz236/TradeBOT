@@ -1,6 +1,6 @@
 import recon
 #[{'time': 1777507200000, 'open': 75780.0, 'high': 76669.14, 'low': 75323.65, 'close': 76346.57, 'volume': 10381.81607},
-DIF = 0.1
+DIF = 0.003
 
 dayly_bars = recon.get_all_frames("BTCUSDT").get("d")
 
@@ -42,8 +42,8 @@ def get_prelevel(exts):
             low_levels.append([bar])
 
 
-    pre_filter_pre_low_levels = [x for x in low_levels if len(x) >= 3]
-    pre_filter_pre_high_levels = [x for x in high_levels if len(x) >= 3]
+    pre_filter_pre_low_levels = [x for x in low_levels if len(x) >= 2]
+    pre_filter_pre_high_levels = [x for x in high_levels if len(x) >= 2]
 #LOWLEVELS
     for level in pre_filter_pre_low_levels:
         level.append(sum([x.get("low") for x in level])/len(level))
@@ -56,4 +56,4 @@ def get_prelevel(exts):
 
 
 
-#print(get_level(ext_search(dayly_bars)))
+print([x[-1] for x in get_prelevel((ext_search(dayly_bars)))[1]])
