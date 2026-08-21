@@ -53,7 +53,9 @@ def get_prelevel(exts):
 
     return [pre_filter_pre_low_levels, pre_filter_pre_high_levels]
 
-
-
-
-print([x[-1] for x in get_prelevel((ext_search(dayly_bars)))[1]])
+    #на выхое функция выдает массив в котором лежат 2 массива. первых хранит в себе массивы всех баров уровней
+    #поддержки dicts, и цену уровня посленим элементом, второй вс ето же, но для уровня отражения
+    # [
+    # [ [lowlevel1, cost1], [lowlevel2, cost2], [volleveln, costn] ],
+    # [ [highlevel1, cost1], [highlevel2, cost2], [highleveln, costn] ]
+    # ]
