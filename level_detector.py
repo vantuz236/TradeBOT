@@ -2,7 +2,7 @@ import recon
 #[{'time': 1777507200000, 'open': 75780.0, 'high': 76669.14, 'low': 75323.65, 'close': 76346.57, 'volume': 10381.81607},
 DIF = 0.003
 
-dayly_bars = recon.get_all_frames("BTCUSDT").get("d")
+#dayly_bars = recon.get_all_frames("BTCUSDT").get("d")
 
 def ext_search(bars):
     high_exts = []

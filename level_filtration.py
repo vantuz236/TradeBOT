@@ -1,4 +1,4 @@
-from level_detector import dayly_bars
+
 
 BREAKEDOWN_DIF = 0.01
 
