@@ -28,7 +28,7 @@ def get_bars(symbol, interval, limit):
 
     return bars
 
-def get_all_frames(symbol):
+def get_all_frames(symbol=SYMBOL):
     frames = {
         "d": get_bars(symbol, "1d", DAY_LIMIT),
         "h": get_bars(symbol, "1h", HOUR_LIMIT),
